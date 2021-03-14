@@ -1,4 +1,5 @@
 <?php 
+	echo "<br> Hello world";
 	echo "Tam giác 1 : <br>";
 	for($i = 0; $i<6; $i++)
 	{
