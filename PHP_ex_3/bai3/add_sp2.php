@@ -1,45 +1,54 @@
 <?php
+	date_default_timezone_set('Asia/Ho_Chi_Minh');
 	session_start();
-	$cart = array(
-		'SP1' => array(
+	$gh = array(
+		'SP01'=>array(
 			'id' => 'SP01',
-			'tsp' => 'Iphone5 32G',
-			'dg' => 500000,
-			'sl' => 5,
+			'tensp' => 'Iphone 4 32GB',
+			'dongia' => 5000000,
+			'soluong' => 4234,
+			'thoigian' =>NULL,
 		),
-
-		'SP2' => array(
+		'SP02'=>array(
 			'id' => 'SP02',
-			'tsp' => 'Iphone6 32G',
-			'dg' => 700000,
-			'sl' => 5,
+			'tensp' => 'Ipad Mini 16GB',
+			'dongia' => 8000000,
+			'soluong' => 4234243,
+			'thoigian' =>NULL,
 		),
-
-		'SP3' => array(
+		'SP03'=>array(
 			'id' => 'SP03',
-			'tsp' =>'Iphone6 plus 32G',
-			'dg' => 800000,
-			'sl' => 5,
+			'tensp' => 'Iphone 5 32GB',
+			'dongia' => 3000000,
+			'soluong' => 3234,
+			'thoigian' =>NULL,
 		),
-
-		'SP4' => array(
+		'SP04'=>array(
 			'id' => 'SP04',
-			'tsp' => 'Iphone Mini',
-			'dg' => 300000,
-			'sl' => 5,
+			'tensp' => 'Iphone 6 32GB',
+			'dongia' => 10000000,
+			'soluong' => 4234,
+			'thoigian' =>NULL,
 		),
 	);
-
+	
 	$maCode = $_GET['id'];
+	
 
-	if(isset($_SESSION['cartsp'][$maCode])) {
-		$_SESSION['cartsp'][$maCode]['sl']++;
-	} else {
-		$cart = $cart[$maCode];
-		$cart['sl'] = 1;
-		$_SESSION['cartsp'][$maCode] = $cart; 
+
+	if (isset($_SESSION['code'][$maSP])) {
+		// Tăng số lượng
+		$_SESSION['code'][$maCode]['soluong']++;
+		$_SESSION['code'][$maCode]['thoigian']= date('Y-m-d H:i:s');
+	}else{
+		// Chưa có trong giỏ hàng
+		// B2: Lấy thông tin sản phẩm
+		$gh = $gh[$maCode];
+		$gh['soluong'] = 1;
+
+		// B3: Add vào giỏ hàng
+		$_SESSION['code'][$maCode]  = $gh;
+		$_SESSION['code'][$maCode]['thoigian']  =  date('Y-m-d H:i:s');	
 	}
-
-	header('Location: add_sp.php');
-
- ?>
+	header('Location: add_mh.php');
+?>
