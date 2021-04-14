@@ -15,26 +15,24 @@
 </head>
 <body>
     <div class="container">
-        <h3 class="text-center">--- CATEGORIES ---</h3>
-        <a href="#" class="btn btn-primary">Add New Category</a>
+        <h3 class="text-center">--- USERS ---</h3>
+        <a href="index.php?mod=user&act=add" class="btn btn-primary">Add New Category</a>
         <table class="table">
             <thead>
                 <th>ID</th>
                 <th>Name</th>
-                <th>Thumbnail</th>
-                <th>Description</th>
-                <th>Action</th>
+                <th>Email</th>
             </thead>
-            <?php foreach ($categories as $value) {
+            <?php foreach ($users as $value) {
             ?>
             <tr>
                 <td><?php echo $value['id'] ?></td>
-                <td><?php echo $value['name'] ?></td>
-                <td><?php echo $value['description'] ?></td>
+                <td><?php echo $value['name1'] ?></td>
+                <td><?php echo $value['email'] ?></td>
                 <td>
-                    <a href="index.php?mod=category&act=detail&id=<?php echo $value['id'] ?>" class="btn btn-primary">Detail</a>
-                    <a href="#" class="btn btn-success">Edit</a>
-                    <a href="#" class="btn btn-danger">Delete</a>
+                    <a href="index.php?mod=user&act=detail&id=<?php echo $value['id'] ?>" class="btn btn-primary">Detail</a>
+                    <a href="index.php?mod=user&act=edit&id=<?php echo $value['id'] ?>" class="btn btn-success">Edit</a>
+                    <a href="index.php?mod=user&act=delete&id=<?php echo $value['id'] ?>" class="btn btn-danger">Delete</a>
                 </td>
             </tr>
             <?php } ?>
