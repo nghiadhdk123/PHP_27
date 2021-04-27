@@ -118,9 +118,11 @@
 				return $twoPosts;
 		}
 
-	function Techpost()
+
+	function Sportpost($id)
 		{
-			$sql = "SELECT * FROM ".$this->table." INNER JOIN user ON post.`user_id` = user.`user_id` INNER JOIN categories ON post.`categories_id` = categories.`categories_id` WHERE categories.`name1` = 'Tin Công Nghệ' ORDER BY id ASC";
+
+			$sql = "SELECT * FROM ".$this->table." INNER JOIN user ON post.`user_id` = user.`user_id` INNER JOIN categories ON post.`categories_id` = categories.`categories_id` WHERE post.categories_id =".$id;
 
 				$result = $this->connection->query($sql);
 
@@ -135,39 +137,22 @@
 
 		}
 
-	function Sportpost()
-		{
-			$sql = "SELECT * FROM ".$this->table." INNER JOIN user ON post.`user_id` = user.`user_id` INNER JOIN categories ON post.`categories_id` = categories.`categories_id` WHERE categories.`name1` = 'Tin Thể Thao' ORDER BY id ASC";
+	// function Thoisupost()
+	// 	{
+	// 		$sql = "SELECT * FROM ".$this->table." INNER JOIN user ON post.`user_id` = user.`user_id` INNER JOIN categories ON post.`categories_id` = categories.`categories_id` WHERE categories.`name1` = 'Tin quốc tế' ORDER BY id ASC";
 
-				$result = $this->connection->query($sql);
+	// 			$result = $this->connection->query($sql);
 
-				$fourPosts = array();
+	// 			$fourPosts = array();
 
-				while($row = $result->fetch_assoc())
-				{
-					 $fourPosts[] = $row;
-				}
+	// 			while($row = $result->fetch_assoc())
+	// 			{
+	// 				 $fourPosts[] = $row;
+	// 			}
 
-				return $fourPosts;
+	// 			return $fourPosts;
 
-		}
-
-	function Thoisupost()
-		{
-			$sql = "SELECT * FROM ".$this->table." INNER JOIN user ON post.`user_id` = user.`user_id` INNER JOIN categories ON post.`categories_id` = categories.`categories_id` WHERE categories.`name1` = 'Tin quốc tế' ORDER BY id ASC";
-
-				$result = $this->connection->query($sql);
-
-				$fourPosts = array();
-
-				while($row = $result->fetch_assoc())
-				{
-					 $fourPosts[] = $row;
-				}
-
-				return $fourPosts;
-
-		}
+	// 	}
 	}//End class Post
 
  ?>

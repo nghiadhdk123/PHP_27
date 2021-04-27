@@ -8,6 +8,7 @@
 		function __construct()
 		{
 			$this->model = new Post();
+			$this->cate = new Category();
 		}
 
 		function detail()
@@ -15,36 +16,36 @@
 			$id = $_GET['id'];
 
 			$detailPost = $this->model->find($id);
-
-			$nhieuPosts= $this->model->muchposts();
+			$techPost = $this->model->Sportpost($id);
+			$list_cate = $this->cate->all();
 
 			require_once('views/post/detail.php');
 		}
 
 		function list()
 		{
-			$techPost = $this->model->Techpost();
-
+			$id = $_GET['id'];
+			$techPost = $this->model->Sportpost($id);
+			$listtttt = $this->cate->list_category();
 			// echo "<pre>";
 			// 	print_r($techPost);
 			// echo "</pre>";
-
 			require_once('views/post/list.php');
 		}
 
-		function list2()
-		{
-			$techPost = $this->model->Sportpost();
+		// function list2()
+		// {
+		// 	$techPost = $this->model->Sportpost();
 
-			require_once('views/post/list2.php');
-		}
+		// 	require_once('views/post/list2.php');
+		// }
 
-		function list3()
-		{
-			$techPost = $this->model->Thoisupost();
+		// function list3()
+		// {
+		// 	$techPost = $this->model->Thoisupost();
 
-			require_once('views/post/list3.php');
-		}
+		// 	require_once('views/post/list3.php');
+		// }
 
 		function lists()
 		{
@@ -88,9 +89,20 @@
 			require_once('views/admin/them.php');
 		}
 
-		function create()
+		function store()
 		{
 			$data = $_POST;
+
+			$target_dir = "public/images/";  // thư mục chứa file upload
+
+        	$target_file = $target_dir . basename($_FILES["thumbnail"]["name"]); // link sẽ upload file lên
+        
+       		 if (move_uploaded_file($_FILES["thumbnail"]["tmp_name"], $target_file)) { // nếu upload file không có lỗi 
+           		 $img = array('thumbnail'=>$_FILES["thumbnail"]["name"]);
+           		 $data = array_merge($data,$img);
+        	} else { // Upload file có lỗi 
+           		 echo "Sorry, there was an error uploading your file.";
+        	}
 
 			$create = $this->model->create($data);
 
@@ -103,8 +115,6 @@
 			}
 
 			header('Location:index.php?admin=admin&mod=post&act=add');
-
-
 		}
 
 		function edit()
@@ -119,6 +129,17 @@
 		function update(){
 
 			$data = $_POST;
+
+			$target_dir = "public/images/";  // thư mục chứa file upload
+
+        	$target_file = $target_dir . basename($_FILES["thumbnail"]["name"]); // link sẽ upload file lên
+        
+       		 if (move_uploaded_file($_FILES["thumbnail"]["tmp_name"], $target_file)) { // nếu upload file không có lỗi 
+           		 $img = array('thumbnail'=>$_FILES["thumbnail"]["name"]);
+           		 $data = array_merge($data,$img);
+        	} else { // Upload file có lỗi 
+           		 echo "Sorry, there was an error uploading your file.";
+        	}
 
 			$updated = $this->model->update($data);
 

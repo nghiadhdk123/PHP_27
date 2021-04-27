@@ -62,15 +62,14 @@
                               <li class="active">
                                  <a href="index.php" class="nav-link text-left">Home</a>
                               </li>
-                              <li>
-                                 <a href="index.php?admin=admin&mod=post&act=list&name='Tin Công Nghệ'" class="nav-link text-left">Tin Công Nghệ</a>
+                              <?php 
+                                 foreach ($listtttt as $key => $value) {
+                               ?>
+                              <li class="active">
+                                    <a href="index.php?admin=admin&mod=post&act=list&id=<?= $value['categories_id'] ?>" class="nav-link text-left"><?= $value['name1'] ?></a>
                               </li>
-                              <li>
-                                 <a href="index.php?admin=admin&mod=post&act=list2&name='Tin Thể Thao'" class="nav-link text-left">Tin Thể Thao</a>
-                              </li>
-                              <li>
-                                 <a href="index.php?admin=admin&mod=post&act=list3&name='Tin Thời Sự'" class="nav-link text-left">Tin Quốc Tế</a>
-                              </li>
+                            <?php } ?>
+                              
                               <li><a href="contact.html" class="nav-link text-left">Contact</a></li>
                            </ul>
                         </nav>
@@ -82,7 +81,6 @@
          <!-- MIDDLE -->
          <div class="container-fluid" style="margin-top: 10%;">
             <div class="container">
-               <h1 style="margin-bottom: 5%;color: black">TIN CÔNG NGHỆ</h1>
                <div class="row">
                   <?php foreach ($techPost as $key => $value) { ?>
                      <div class="col-lg-6 mb-5">

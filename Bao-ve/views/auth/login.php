@@ -271,7 +271,23 @@ input[type=text]:placeholder {
 }
 </style>
 <body>
+    <?php 
+        if(isset($_COOKIE['dktc']))
+            {
+         ?>
+            <div class="alert alert-success">
+             <strong><?php echo $_COOKIE['dktc'] ?></strong>
+            </div>
+        <?php } ?>
 
+        <?php 
+        if(isset($_COOKIE['dktb']))
+            {
+         ?>
+            <div class="alert alert-success">
+             <strong><?php echo $_COOKIE['dktb'] ?></strong>
+            </div>
+        <?php } ?>
 <div class="wrapper fadeInDown">
   <div id="formContent">
     <!-- Tabs Titles -->

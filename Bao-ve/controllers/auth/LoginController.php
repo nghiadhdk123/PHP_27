@@ -7,6 +7,7 @@
 	{
 		public function loginForm()
 		{
+
 		if(!empty($_SESSION['auth']))
 			{
 				return $this->redirect('?admin=admin&mod=post&act=admin');

@@ -155,23 +155,19 @@
                         <table class="table">
                             <thead>
                                 <th>ID</th>
-                                <th style="text-align: center;">Name</th>
-                                <th style="text-align: center;">Description</th> 
-                                <th style="text-align: center;">View</th>
-                                <th style="text-align: center;">Thumbnail</th>
+                                <th style="text-align: center;">Title</th>
+                                <th style="text-align: center;" style="text-align: center;">Thumbnail</th>
                                 <th style="text-align: center;">Action</th>
                             </thead>
                             <?php foreach ($lists as $value) {
                             ?>
                             <tr>
-                                <td><?php echo $value['id'] ?></td>
-                                <td><?php echo $value['title'] ?></td>
-                                <td><?php echo $value['description'] ?></td>
-                                <td><?php echo $value['viewcount'] ?></td>
-                                <td><img src="<?php echo $value['thumbnail'] ?>" width='100%' height='200px' alt=""></td>
-                                <td>
-                                    <a class="btn btn-danger" href="index.php?admin=admin&mod=post&act=delete&id=<?= $value['id'] ?>">Delete</a>
-                                    <a class="btn btn-warning" href="index.php?admin=admin&mod=post&act=edit&id=<?= $value['id'] ?>">Update</a>
+                                <td style="text-align: center;"><?php echo $value['id'] ?></td>
+                                <td style="text-align: center;"><?php echo $value['title'] ?></td>
+                                <td style="text-align: center;"><img src="public/images/<?= $value['thumbnail'] ?>" width='200px' height='200px' alt=""></td>
+                                <td style="text-align: center;">
+                                    <a class="btn btn-danger" href="index.php?admin=admin&mod=post&act=delete&id=<?= $value['id'] ?>" style="width: 90px;">Delete</a>
+                                    <a class="btn btn-warning" href="index.php?admin=admin&mod=post&act=edit&id=<?= $value['id'] ?>" style="width: 90px;">Update</a>
                                 </td>
                             </tr>
                             <?php } ?>

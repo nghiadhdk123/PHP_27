@@ -34,6 +34,7 @@
                   <div class="col-12 col-lg-6 d-flex">
                      <a href="index.php" class="site-logo">
                      My Blog
+                     <p style="font-size: 10px;font-weight: bold">echo "Trần Đình Nghĩa"</p>
                      </a>
                      <a href="#" class="ml-auto d-inline-block d-lg-none site-menu-toggle js-menu-toggle text-black"><span class="icon-menu h3"></span></a>
                   </div>
@@ -43,12 +44,12 @@
                         <a href="https://www.facebook.com/profile.php?id=100026797158206" class="d-inline-block p-3"><span class="icon-twitter"></span></a>
                         <a href="https://www.facebook.com/profile.php?id=100026797158206" class="d-inline-block p-3"><span class="icon-instagram"></span></a>
                      </div>
-                     <form action="#" class="search-form d-inline-block">
-                        <div class="d-flex">
-                           <input type="email" class="form-control" placeholder="Search...">
-                           <button type="submit" class="btn btn-secondary"><span class="icon-search"></span></button>
+                    
+                        <div class="d-flex" style="height: 50px;justify-content: center;align-items: center;align-content: center;">
+                           <a href="index.php?admin=auth&mod=login&act=loginForm">Login</a>
+                           <a href="index.php?admin=admin&mod=user&act=add" style="margin-left: 5%; border-left: 1px solid black;padding-left: 5%">Register</a>
                         </div>
-                     </form>
+                    
                   </div>
                   <div class="col-6 d-block d-lg-none text-right"></div>
                </div>
@@ -64,16 +65,14 @@
                               <li class="active">
                                  <a href="index.php" class="nav-link text-left">Home</a>
                               </li>
-                              <li>
-                                 <a href="index.php?admin=admin&mod=post&act=list&name='Tin Công Nghệ'" class="nav-link text-left">Tin Công Nghệ</a>
-                              </li>
-                              <li>
-                                 <a href="index.php?admin=admin&mod=post&act=list2&name='Tin Thể Thao'" class="nav-link text-left">Tin Thể Thao</a>
-                              </li>
-                              <li>
-                                 <a href="index.php?admin=admin&mod=post&act=list3&name='Tin Thời Sự'" class="nav-link text-left">Tin Quốc Tế</a>
-                              </li>
-                              <li><a href="#" class="nav-link text-left">Contact</a></li>
+                              <?php 
+                                 foreach ($lists as $key => $value) {
+                               ?>
+                                 <li class="active">
+                                    <a href="index.php?admin=admin&mod=post&act=list&id=<?= $value['categories_id'] ?>" class="nav-link text-left"><?= $value['name1'] ?></a>
+                                 </li>
+                            <?php } ?>
+                              
                            </ul>
                         </nav>
                      </div>
@@ -104,7 +103,7 @@
                      <div class="site-section">
                   <div class="container">
                      <div class="half-post-entry d-block d-lg-flex bg-light">
-                        <div class="img-bg" style="background-image: url(<?= $value['thumbnail'] ?>)"></div>
+                        <div class="img-bg" style="background-image: url('public/images/<?= $value['thumbnail'] ?>')"></div>
                         <div class="contents">
                            <span class="caption">Editor's Pick</span>
                            <h2><a href="index.php?admin=admin&mod=post&act=detail&id=<?= $value['id'] ?>">
@@ -196,7 +195,7 @@
             ?>
             <div class="container">
                <div class="half-post-entry d-block d-lg-flex bg-light">
-                  <div class="img-bg" style="background-image: url(<?= $value['thumbnail'] ?>)"></div>
+                  <div class="img-bg" style="background-image: url('public/images/<?= $value['thumbnail'] ?>')"></div>
                   <div class="contents">
                      <span class="caption"> <?= $value['name1'] ?> </span>
                      <h2><a href="index.php?admin=admin&mod=post&act=detail&id=<?= $value['id'] ?>"><?= $value['title'] ?></a></h2>
@@ -222,7 +221,7 @@
                      <?php foreach ($ttquocte as $key => $value) {
                       ?>
                      <div class="post-entry-2 d-flex">
-                        <div class="thumbnail" style="background-image: url(<?= $value['thumbnail'] ?>)"></div>
+                        <div class="thumbnail" style="background-image: url('public/images/<?= $value['thumbnail'] ?>')"></div>
                         <div class="contents">
                            <h2><a href="index.php?admin=admin&mod=post&act=detail&id=<?= $value['id'] ?>"><?= $value['title'] ?></a></h2>
                            <p class="mb-3"><?= $value['description'] ?></p>
@@ -241,7 +240,7 @@
                      <?php foreach ($tinqt as $key => $value) {
                      ?>
                      <div class="post-entry-2 d-flex">
-                        <div class="thumbnail" style="background-image: url(<?= $value['thumbnail'] ?>)"></div>
+                        <div class="thumbnail" style="background-image: url('public/images/<?= $value['thumbnail'] ?>')"></div>
                         <div class="contents">
                            <h2><a href="index.php?admin=admin&mod=post&act=detail&id=<?= $value['id'] ?>"><?= $value['title'] ?></a></h2>
                            <p class="mb-3"><?= $value['description'] ?></p>

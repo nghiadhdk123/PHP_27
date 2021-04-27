@@ -135,7 +135,7 @@
                         <h1 class="mt-4">THÊM BÀI VIẾT</h1>
                         <!-- MIDDLE -->
                         <table class="table">
-                            <form action="index.php?admin=admin&mod=post&act=create" method="POST">
+                            <form action="index.php?admin=admin&mod=post&act=store" method="POST" role=form enctype="multipart/form-data" >
                                  <div class="form-group">
                                     <label for="">Title</label>
                                     <input type="text" class="form-control" id="" placeholder="" name="title">
@@ -146,7 +146,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="">Thumbnail</label>
-                                    <input type="text" class="form-control" id="" placeholder="" name="thumbnail">
+                                    <input type="file" class="form-control" id="thumbnail" placeholder="" name="thumbnail">
                                 </div>
                                 <div class="form-group">
                                     <label for="">Content</label>

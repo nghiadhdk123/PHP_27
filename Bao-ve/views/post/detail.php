@@ -62,15 +62,13 @@
                               <li class="active">
                                  <a href="index.php" class="nav-link text-left">Home</a>
                               </li>
-                              <li>
-                                 <a href="index.php?admin=admin&mod=post&act=list&name='Tin Công Nghệ'" class="nav-link text-left">Tin Công Nghệ</a>
-                              </li>
-                              <li>
-                                 <a href="index.php?admin=admin&mod=post&act=list2&name='Tin Thể Thao'" class="nav-link text-left">Tin Thể Thao</a>
-                              </li>
-                              <li>
-                                 <a href="index.php?admin=admin&mod=post&act=list3&name='Tin Thời Sự'" class="nav-link text-left">Tin Quốc Tế</a>
-                              </li>
+                              <?php 
+                                 foreach ($list_cate as $key => $value) {
+                               ?>
+                                 <li class="active">
+                                    <a href="index.php?admin=admin&mod=post&act=list&id=<?= $value['categories_id'] ?>" class="nav-link text-left"> <?= $value['name1'] ?> </a>
+                                 </li>
+                              <?php } ?>                              
                               <li><a href="contact.html" class="nav-link text-left">Contact</a></li>
                            </ul>
                         </nav>

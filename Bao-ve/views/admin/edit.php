@@ -146,7 +146,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="">Thumbnail</label>
-                                    <input type="text" class="form-control" id="" placeholder="" name="thumbnail" value="<?= $update['thumbnail'] ?>">
+                                    <input type="file" class="form-control" id="" placeholder="" name="thumbnail" value="<?= $update['thumbnail'] ?>">
                                 </div>
                                 <div class="form-group">
                                     <label for="">Content</label>

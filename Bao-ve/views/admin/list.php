@@ -113,7 +113,6 @@
                                 <th style="text-align: center;">Name</th>
                                 <th style="text-align: center;">Description</th> 
                                 <th style="text-align: center;">Content</th>
-                                <th style="text-align: center;">Thumbnail</th>
                             </thead>
                             <?php foreach ($lists as $value) {
                             ?>
@@ -122,7 +121,6 @@
                                 <td><?php echo $value['title'] ?></td>
                                 <td><?php echo $value['description'] ?></td>
                                 <td><?php echo $value['content'] ?></td>
-                                <td><img src="<?php echo $value['thumbnail'] ?>" width='100%' height='200px' alt=""></td>
                             </tr>
                             <?php } ?>
                         </table>

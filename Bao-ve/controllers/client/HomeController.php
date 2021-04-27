@@ -1,5 +1,6 @@
 <?php 
 	require_once('models/Post.php');
+	require_once('models/Category.php');
 	class HomeController
 	{
 		var $model;
@@ -7,6 +8,7 @@
 		function __construct()
 		{
 			$this->model = new Post();
+			$this->category = new Category();
 		}
 
 		function index()
@@ -21,6 +23,7 @@
 			// 	print_r($fourPosts);
 			// echo "</pre>";
 			// die();
+			$lists = $this->category->all();
 			require_once('views/home/index.php');
 		}
 	}
