@@ -25,7 +25,7 @@
             </div>
             <div class="form-group">
                 <label for="">DESCRIPTION</label>
-                <input type="text" class="form-control" id="" placeholder="Chuyên mục bài viết" name="description">
+                <input type="text" class="form-control" id="" placeholder="Chuyên mục bài viết" name="description1">
             </div>
             <div class="form-group">
                 <label for="">CONTENT</label>

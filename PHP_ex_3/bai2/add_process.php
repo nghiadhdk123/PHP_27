@@ -1,28 +1,27 @@
 <?php 
-	 session_start();
+	session_start();
+			$data = array();
+			$data['msv'] = $_POST['msv'];
+			$data['name'] = $_POST['name'];
+			$data['phone'] = $_POST['phone'];
+			$data['mail'] = $_POST['mail'];
+			$data['gender'] = $_POST['gender'];
+			$data['add'] = $_POST['add'];
+			
+			// echo "<pre>";
+			// 	print_r($data);
+			// echo "</pre>";
 
-	 if (isset($_POST['msv'])) {
-	 		$code = $_POST['msv'];
-	 		$name = $_POST['name'];
-	 		$mail = $_POST['mail'];
-	 		$phone = $_POST['phone'];
-	 		$add = $_POST['add'];
-	 		$gt = $_POST['gender'];
+			$_SESSION[$data['msv']] = $data;
+			echo "<pre>";
+				print_r($_SESSION);
+			echo "</pre>";
+			//session_destroy();
+			header("Location: list.php")
+			
+		
 
-	 		$_SESSION['student'][$code] = array(
-	 			'code' => $code,
-	 			'name' => $name,
-	 			'mail' => $mail,
-	 			'phone' => $phone,
-	 			'add' => $add,
-	 			'gt' => $gt,
-	 		);
 
-	 		echo print_r($_SESSION);
-
-	 		header('Location: list.php');
-	 }
-
-	  
+	
 
  ?>

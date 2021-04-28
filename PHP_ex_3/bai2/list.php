@@ -1,12 +1,10 @@
 <?php 
-
 	session_start();
+	
+	$students = $_SESSION;
 
-	if (isset($_SESSION['student'])) {
-		$dataArray = $_SESSION['student'];
-	} else {
-		$dataArray = array();
-	}
+	//session_destroy();
+
 
  ?>
 
@@ -28,7 +26,7 @@
 
 	<div class="container">
 	<h2>Danh sách người dùng</h2>
-	<a href="index2.php" class="btn btn-primary">Thêm mới</a>
+	<a href="login.php" class="btn btn-primary">Thêm mới</a>
 
 	<table class="table">
 		<thead>
@@ -36,27 +34,25 @@
 				<th>#</th>
 				<th>Mã Sinh Viên</th>
 				<th>Họ tên</th>
-				<th>Action</th>
+				<th colspan="4">Action</th>
 			</tr>
 		</thead>
 		<tbody>
-			<?php 
-				$i =0;
-				foreach ($dataArray as  $value) {
-					$i++;
-			 ?>
+				 <?php
+				$i = 1; 
+				foreach ($students as $key => $value) {
+				?>
+				<tr>
+					<td> <?php echo $i; ?> </td>
+					<td> <?php echo $value['msv']; ?> </td>
+					<td> <?php echo $value['name']; ?> </td>
+					<td><a href="detail.php?msv=<?= $value['msv'] ?>">Detail</a> | <a href="delete.php?msv=<?= $value['msv'] ?>">Delete</a> </td>
+					
+				</tr>
+	
+				<?php $i++; } ?> 
 
-			 <tr>
-			 	<td> <?php echo $i; ?> </td>
-			 	<td> <?php echo $value['code']; ?> </td>
-			 	<td> <?php echo $value['name']; ?> </td>
-			 	<td>	
-			 	<a href="detail.php?code=<?php echo $value['code']; ?>" class ="btn btn-primary">Detail</a>
-			 	<a href="delete.php?code=<?php echo $value['code']; ?>" class ="btn btn-primary">Delete</a>
-			 </td>
-			 </tr>	
-
-			<?php } ?>
+			
 		</tbody>	
 
 	</table>

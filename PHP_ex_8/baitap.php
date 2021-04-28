@@ -70,8 +70,4 @@
 	echo "Mật khẩu :" .sha1($input1->password)."<br>";
 	echo "Ảnh đại diện :" .$input1->avatar."<br>";
 
-
-
-
-
  ?>

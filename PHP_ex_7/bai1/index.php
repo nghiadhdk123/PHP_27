@@ -26,6 +26,7 @@
     <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
 
     <!-- Latest compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous"></script>
     <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 </head>
 <body>
@@ -56,7 +57,7 @@
                 <td><?= $value['view_count']?></td>
                 <td><?= $value['creat_at']?></td>
                 <td>
-                    <a href="detail.php?id=<?= $value['id1']?>" class="btn btn-primary">Detail</a>
+                    <a href="#?id=<?= $value['id1']?>" data-id='<?= $value['id1']?>' class="btn btn-primary nut">Detail</a>
                     <a href="edit2.php?id=<?= $value['id1']?>" class="btn btn-success">Edit</a>
                     <a href="delete.php?id=<?= $value['id1']?>" class="btn btn-danger">Delete</a>
                 </td>
@@ -64,5 +65,49 @@
         <?php } ?>
         </table>
     </div>
+    <div class="modal" id="viewmodal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p id="postname"></p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
 </body>
+<script>
+    $(document).ready(function(){
+        $('.nut').click(function(e)
+        {
+            e.preventDefault()
+            let id = $(this).attr('data-id');
+
+
+            $.ajax({
+                url: '/PHP_ex_7/bai1/xuli.php?id= ' + id,
+                type: 'get',
+                success: (response) => {
+                    var response = JSON.parse(response);
+                    $('#postname').text(response.id1);
+                    $('#viewmodal').modal('show');
+
+                }
+
+
+            })
+
+        });
+    })
+</script>
+
 </html>

@@ -1,15 +1,10 @@
 <?php 
-		session_start();
-		if (isset($_GET['code'])) {
-			$code = $_GET['code'];
+	session_start();
+	if(isset($_GET['msv'])) {
+		$student = $_GET['msv'];
+		unset($_SESSION[$student]);
+	}
 
-			unset($_SESSION['student'][$code]);
-			
-		}
-		
-		header("Location: list.php");
-
-
-
+	header('Location: list.php')
 
  ?>
