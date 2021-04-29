@@ -9,19 +9,5 @@
 		{
 			$this->model = new Category();
 		}
-
-	// 	function list()
-	// 	{
-	// 		$lists = $this->model->all();
-
-	// 		echo "<pre>";
-	// 			print_r($lists);
-	// 		echo "</pre>";
-
-	// 		require_once('views/home/index.php');
-	// 	}
 	 }
-
-
-
  ?>

@@ -137,22 +137,6 @@
 
 		}
 
-	// function Thoisupost()
-	// 	{
-	// 		$sql = "SELECT * FROM ".$this->table." INNER JOIN user ON post.`user_id` = user.`user_id` INNER JOIN categories ON post.`categories_id` = categories.`categories_id` WHERE categories.`name1` = 'Tin quốc tế' ORDER BY id ASC";
-
-	// 			$result = $this->connection->query($sql);
-
-	// 			$fourPosts = array();
-
-	// 			while($row = $result->fetch_assoc())
-	// 			{
-	// 				 $fourPosts[] = $row;
-	// 			}
-
-	// 			return $fourPosts;
-
-	// 	}
 	}//End class Post
 
  ?>

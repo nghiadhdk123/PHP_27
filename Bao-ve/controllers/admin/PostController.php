@@ -33,20 +33,6 @@
 			require_once('views/post/list.php');
 		}
 
-		// function list2()
-		// {
-		// 	$techPost = $this->model->Sportpost();
-
-		// 	require_once('views/post/list2.php');
-		// }
-
-		// function list3()
-		// {
-		// 	$techPost = $this->model->Thoisupost();
-
-		// 	require_once('views/post/list3.php');
-		// }
-
 		function lists()
 		{
 			$lists = $this->model->all();
